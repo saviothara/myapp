@@ -3,7 +3,7 @@ graph TD
     subgraph Google Chatbot
         A[Google Chat User] -->|Sends Message| B(Google Chat)
         B -->|Event Trigger| C[Google Cloud Function: respond()]
-        C --> D{Message Type?}
+        C --> D["Message Type?"]
 
         D -->|Direct Message with /setup| E[OAuth Manager]
         E -->|Authorization Link| B
@@ -12,7 +12,7 @@ graph TD
         F -->|Instructions| B
 
         D -->|Threaded Message (General)| G[Google Chat Manager]
-        G -->|Send "Bot is thinking..." Card| B
+        G -->|Send 'Bot is thinking...' Card| B
         G -->|Get Space Members & Thread Messages| H[Google Chat API]
         G -->|Retrieve Credentials| I[Google Secret Manager]
         G -->|Prepare Chat History & Call LLM Manager| J[LLM Manager]
